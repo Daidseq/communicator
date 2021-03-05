@@ -33,7 +33,7 @@ function LoginPage({ onSuccess }) {
   };
 
   return (
-    <div>
+    <div className="login-page">
       <div>Login Page</div>
       <br />
       <br />

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { API_URL } from "../api";
 import Button from "../Button";
 
 function LoginPage({ onSuccess }) {
@@ -9,7 +10,7 @@ function LoginPage({ onSuccess }) {
 
   const login = () => {
     setLoading(true);
-    fetch("https://open.rocket.chat/api/v1/login", {
+    fetch(API_URL + "/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +24,7 @@ function LoginPage({ onSuccess }) {
         return response.json();
       })
       .then((response) => {
-        if (response.status !== 200) {
+        if (response.status !== "success") {
           setError("Nie udało się zalogować");
         } else {
           onSuccess(response.data);
@@ -33,7 +34,7 @@ function LoginPage({ onSuccess }) {
   };
 
   return (
-    <div className="login-page">
+    <div>
       <div>Login Page</div>
       <br />
       <br />

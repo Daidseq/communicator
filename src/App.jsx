@@ -1,15 +1,12 @@
 import { useState } from "react";
-import LoginPage from "./LoginPage/LoginPage";
+import LoginPage from "./loginPage/LoginPage";
+import MainPage from "./mainPage/MainPage";
 
 function App() {
   const [userData, setUserData] = useState(null);
 
   if (userData) {
-    return (
-      <div>
-        Slack ekran {userData.me.name} {userData.authToken}
-      </div>
-    );
+    return <MainPage userData={userData} />;
   } else {
     return <LoginPage onSuccess={setUserData} />;
   }
